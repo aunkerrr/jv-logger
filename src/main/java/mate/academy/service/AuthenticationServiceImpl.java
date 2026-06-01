@@ -3,10 +3,14 @@ package mate.academy.service;
 import mate.academy.exception.AuthenticationException;
 import mate.academy.model.User;
 
+import java.util.logging.Logger;
+
 public class AuthenticationServiceImpl implements AuthenticationService {
+    private static final Logger logger =
+            Logger.getLogger(AuthenticationService.class);
     @Override
     public User login(String login, String password) throws AuthenticationException {
-        //TODO: add corresponding log message about method login was called
+        logger.info("Method login was called. Params: login={}", login);
         User user = findByLogin(login);
         if (!user.getPassword().equals(password)) {
             throw new AuthenticationException("Username or password are incorrect");
