@@ -2,12 +2,13 @@ package mate.academy.service;
 
 import mate.academy.exception.AuthenticationException;
 import mate.academy.model.User;
-
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AuthenticationServiceImpl implements AuthenticationService {
     private static final Logger logger =
-            Logger.getLogger(AuthenticationService.class);
+            LoggerFactory.getLogger(AuthenticationServiceImpl.class);
+
     @Override
     public User login(String login, String password) throws AuthenticationException {
         logger.info("Method login was called. Params: login={}", login);
